@@ -44,9 +44,4 @@ namespace DataStructures
 
         }
     }
-
-    public struct KeyValuePair<TKey, TValue>
-    {
-
-    }
 }
