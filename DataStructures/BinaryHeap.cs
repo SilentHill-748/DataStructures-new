@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
 
 namespace DataStructures
 {
     public class BinaryHeap<T> : IEnumerable<T>
-        where T : IComparable
+        where T : IComparable<T>
     {
         private readonly List<T> _items;
 
