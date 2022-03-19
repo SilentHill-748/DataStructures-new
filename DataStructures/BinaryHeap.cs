@@ -85,6 +85,14 @@ namespace DataStructures
             }
         }
 
+        public IEnumerable<T> Order()
+        {
+            while (_items.Count > 0)
+            {
+                yield return GetMax();
+            }
+        }
+
         private void RebalanceHeap()
         {
             int current = Count - 1;
