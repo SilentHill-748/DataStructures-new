@@ -3,7 +3,7 @@
 namespace DataStructures
 {
     public class BinarySearchTree<T>
-        where T : IComparable
+        where T : IComparable<T>
     {
         private Node<T>? _root;
 
@@ -131,7 +131,7 @@ namespace DataStructures
     }
 
     public class Node<T> : IComparable
-        where T : IComparable
+        where T : IComparable<T>
     {
         public T Value { get; set; }
 
