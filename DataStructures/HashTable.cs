@@ -8,7 +8,7 @@ namespace DataStructures
 {
     public class HashTable<TKey, TValue>
     {
-        private List<TValue>[] _values;
+        private readonly List<TValue>[] _values;
 
 
         public HashTable(int size)
@@ -36,12 +36,11 @@ namespace DataStructures
 
         private int GetHash(TKey item)
         {
-            return (int)item.ToString().Sum(x => char.GetNumericValue(x));
-        }
+            ArgumentNullException.ThrowIfNull(item, nameof(item));
+            
+            string stringItem = item.ToString() ?? string.Empty; // item never be null.
 
-        private void ResizeArea()
-        {
-
+            return (int)(stringItem.Sum(x => char.GetNumericValue(x)));
         }
     }
 }

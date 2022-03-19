@@ -33,7 +33,10 @@ namespace DataStructures
 
         private int GetHash(T item)
         {
-            return item.GetHashCode() % _items.Length;
+            if (item is not null)
+                return item.GetHashCode() % _items.Length;
+
+            throw new ArgumentNullException(nameof(item));
         }
     }
 

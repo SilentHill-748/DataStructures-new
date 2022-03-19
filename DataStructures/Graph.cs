@@ -12,7 +12,7 @@ namespace DataStructures
         private readonly List<Edge> _edges;
 
         private readonly Dictionary<Vertex, double> _costs;
-        private readonly Dictionary<Vertex, Vertex> _parents;
+        private readonly Dictionary<Vertex, Vertex?> _parents;
         private readonly List<Vertex> _visited;
 
 
@@ -21,7 +21,7 @@ namespace DataStructures
             _vertices = new List<Vertex>();
             _edges = new List<Edge>();
             _costs = new Dictionary<Vertex, double>();
-            _parents = new Dictionary<Vertex, Vertex>();
+            _parents = new Dictionary<Vertex, Vertex?>();
             _visited = new List<Vertex>();
         }
 
@@ -171,7 +171,7 @@ namespace DataStructures
             while (vertex is not null)
             {
                 result.Add(vertex);
-                vertex = _parents[vertex];
+                vertex = _parents[vertex]!; // Nullable type is checked later
             }
 
             result.Reverse();
